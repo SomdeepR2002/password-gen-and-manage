@@ -3,16 +3,12 @@ import string
 import secrets
 
 
-
-'''this function will generate a password which is at least 8-12 characters long and super secure
-NOT recommended if user wants to remember the passwords, these will be stored locally on the machine'''
-def default_password_gen(length=16):
+'''this function will generate a password which is 16 characters long 
+NOT recommended if user wants to remember the passwords'''
+def default_password_gen():
     
     '''instead of generating and checking the password for the conditions we'll create it right from the get go
     using the given conditions'''
-
-    if length < 8:
-        raise ValueError("Password length should be at least 8 according to NIST standards")
 
     #create a string which contains all the possible characters for a password as a reference
     characters = string.ascii_letters + string.digits + string.punctuation
@@ -37,15 +33,7 @@ def default_password_gen(length=16):
     secrets.SystemRandom().shuffle(password)
 
     return ''.join(password)
-    
 
 
-print('The password is:',default_password_gen(12))
-#def human_readable_password_gen(len,conditions):
-
-s1 = 'suji@231'
-s2 = 'ahuh23'
-sentence = list(s1 + s2)
-print(sentence)
-#def check_string(password):
+print('The password is:',default_password_gen())
 
